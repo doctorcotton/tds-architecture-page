@@ -1332,6 +1332,182 @@
       margin-top: 4px;
     }
 
+    .week-progress-stack {
+      display: grid;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .week-progress {
+      padding: 16px 20px 20px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-md);
+      background: var(--surface);
+    }
+
+    .week-progress-head {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .week-progress-head small {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+
+    .week-progress-head h3 {
+      font-size: 15px;
+    }
+
+    .week-cal {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      background: var(--surface);
+    }
+
+    .week-cal-head, .week-cal-row {
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+    }
+
+    .week-cal-head span {
+      padding: 6px 9px;
+      background: var(--navy);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      border-right: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .week-cal-head span:last-child {
+      border-right: 0;
+    }
+
+    .week-cal-cap {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 6px 10px;
+      border-top: 1px solid var(--line);
+      background: var(--surface-2);
+    }
+
+    .week-cal-cap.current {
+      background: var(--blue-soft);
+    }
+
+    .week-cal-row {
+      border-top: 1px solid var(--line);
+    }
+
+    .week-day {
+      min-height: 96px;
+      padding: 7px 9px 9px;
+      border-right: 1px solid var(--line);
+    }
+
+    .week-day:nth-child(7n) {
+      border-right: 0;
+    }
+
+    .week-day .d {
+      display: inline-block;
+      margin-bottom: 5px;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .week-day.empty {
+      background: var(--surface-2);
+    }
+
+    .week-day.empty .d {
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .week-day.today {
+      background: var(--orange-soft);
+      box-shadow: inset 0 0 0 2px var(--orange);
+      border-radius: 6px;
+    }
+
+    .today-tag {
+      margin-left: 4px;
+      padding: 0 5px;
+      border-radius: 999px;
+      background: var(--orange);
+      color: #fff;
+      font-size: 9px;
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    .week-day ul {
+      margin: 0;
+      padding-left: 11px;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.45;
+    }
+
+    .week-day li + li {
+      margin-top: 3px;
+    }
+
+    .week-range {
+      padding: 2px 9px;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--navy);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .week-now {
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--orange);
+      color: #fff;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .week-badge {
+      margin-left: auto;
+      padding: 2px 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--surface);
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .week-badge.ok {
+      border-color: transparent;
+      background: var(--green-soft);
+      color: var(--green);
+      font-weight: 700;
+    }
+
+    @media (max-width: 960px) {
+      .week-cal-head, .week-cal-row {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+      }
+
+      .week-cal-head span:nth-child(n+6), .week-day:nth-child(n+6) {
+        display: none;
+      }
+    }
+
     .rubric {
       display: grid;
       grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -2251,14 +2427,14 @@
         </div>
       </div>
 
-      <div class="delivery-detail-grid" aria-label="TDS Studio 与 TDS Review 当前进度明细">
+      <div class="delivery-detail-grid" aria-label="TDS Studio 与 TDS Review 当前进度概览">
         <article class="delivery-detail">
           <header class="delivery-detail-head"><div><small>TDS Studio · Current Delivery</small><h3>业务平台进度明细</h3></div><code>2026-10-01</code></header>
           <div class="delivery-lanes">
             <div class="delivery-lane"><strong>已具备的业务主干</strong><ul><li>标签记录、字段模型、修订、状态、权限、资产与发布快照。</li><li>SVG 工作台、营养表、评论协作，以及 Review / PackVista 任务编排。</li></ul></div>
             <div class="delivery-lane"><strong>当前协议演进</strong><ul><li>文字槽位进入 v9：同时保存 Illustrator 原样转曲片段、原生文字语义与可编辑槽位，引入 UTF-16 范围、真实度量证据、Tsume 和渲染完整性校验。</li><li>建立 artifact、semantics、behavior、host 四道独立发布门禁，并向 BatchTag 同步不可变协议包、锁清单和固定样本。</li></ul></div>
             <div class="delivery-lane"><strong>当前工作台演进</strong><ul><li>前序工作台提交 <code>53b7935</code> 已合入任务协作、营养 SVG 结构检查、目标识别、未映射提示、营养块覆盖层、独立表单和字体管理。</li><li>编辑会话保持原样预览、草稿、提交和回读边界；失败草稿不覆盖画布，也不能被保存或导出伪装成当前结果。</li></ul></div>
-            <div class="delivery-lane"><strong>最新提交与当前在研</strong><ul><li>UX 契约第二轮（09-21 提交）：<code>254d7ed</code> UX 契约合规修复与不可达死页清理、<code>9c7d662</code> 统一列表详情检查器、<code>423b3c8</code> 阶段筛选 Popover 与字段配置中文化、<code>84f63e8</code> 配方物料详情 Drawer 与种子记录挂载 SVG 图稿、<code>1561a40</code> 首页统计徽标与站内消息中心、<code>3eac798</code> 包材会签列表改为标签任务状态投影、<code>9dd6cd3</code> 种子图稿升级为富版式标签。</li><li>推送通知协作链（已推送 aliyun/dev 至 <code>deb785d</code>）：<code>2d0316e</code> 飞书群机器人提交摘要卡片 → <code>82f400b</code> 多维表工作流扁平载荷 → <code>deb785d</code> webhook 入库为团队共享默认配置 → <code>e69efcd</code> 按提交数阈值降噪 → <code>989ff49</code> 改由 AI 判断功能重要性 → <code>6c6db61</code> 判断链可插拔自定义 AI 命令。</li><li>拼接规则引擎 V2 落地（未推送，ahead 10）：<code>910032c</code> 规则契约 V2 共享内核与后端信封对齐 → <code>c972095</code> 前端接入规则 V2 并重构编排器为左右布局 → <code>7aa1324</code> 字段名加粗落到 SVG 样式通道 → <code>14e38c2</code> 基础数据规则库闭环并解除促销规则错挂 → <code>496a1eb</code> 方案落定加粗粒度裁定与四阶段实施记录；配套 <code>1aed4d5</code> 落地 0031 清理死表、<code>471a58d</code> web pod 拓扑（nginx+API 同 Pod 收敛入口）。09-21 实测 fast 层 418 文件 / 3,353 项通过、1 项跳过。</li><li>09-25 白天 62 个提交合并远端 4 个提交后全量推送 aliyun/dev（<code>f12468f</code> 合并点，HEAD <code>0ec4ba6</code>），dev 与远端同步、工作树干净。Go 物料同步链路 TS 完整恢复七笔：聚合读三层快照化（内存/快照/回源 + TDS_MATERIAL_READ_SOURCE 逃生舱）、强制刷新与运行记录、收件箱目标注册激活、worker 24h 循环与启动预热、startRun 幂等 upsert、单飞 60s 驱逐窗防挂起毒化、deploy 键补登。</li><li>同批落地：全链路搜索修复十笔（% 对长 JSON 文本全灭改 ILIKE 回退、展示名分层、mark 高亮拆分）、全站页头统一三笔（PageHeader 唯一页头、任务行悬停预览整行直开）、配方页 PLM 分级树表四笔（portfolio 域新端点、versionName 服务端唯一生成）、本地开发角色切换器（覆盖链 > 登录身份 > env）、首页任务队列列对齐修复、推送通知落地校验改等待轮询并支持人工强制绕过（<code>d71b351</code>）、UAT 镜像依赖层/源码层拆分并切换 npmmirror（<code>0ec4ba6</code>）。</li><li>09-27 已推送 aliyun/dev 至 <code>d4d29b5</code>（约 46 个提交）：PMO 创建链路 v3 十笔（三态模型/PLM 三态/三步向导）、项目工作台全量重构十三笔（十角色、双口径、详情页、提及、检查点、lead_reminder、openId 自登记待激活）、项目首页三改造九笔（product_manager 白名单恢复、五分组向导六步化、PLM 快照+TDS 成员角色映射）、自定义营养表模板库四笔（迁移 0049 外键单列化）、PLM 同步状态回读端点与详情页新鲜度降级提示（<code>e2eacc9</code>，刷新零网关流量）、dev 直起单例守卫（<code>cbe2295</code>）、任务创建弹窗化+唯一键降为项目级（<code>f3e4f97</code>）与 flaky 断言修复（<code>d4d29b5</code>）。</li><li>09-28 未推 7 笔（ahead 7）：创建页稳定 URL 承载+SPU 行入口（<code>60ddde7</code>）、服务端权威重算缺项+冻结确认门禁+多责任角色交接（<code>dd90996</code>）、草稿身份一致性+意向幂等+服务端草稿恢复（<code>1c9e6a1</code>）、工厂详情网关接入+选厂只读带出（<code>85537be</code>）、身份链补全+69 码与配方主数据带出（<code>cbcddc6</code>）、礼盒线下审核分支闭环+创建审计事件（<code>f5793ee</code>）、组合端点 fail-closed 补全+向导样式迁移（<code>f35e3b6</code>）。工作树 2 个未跟踪文档。</li><li>09-28 实测 fast 层 241 文件 / 1,726 项中 1,724 项通过、1 项失败（create-task-state 冻结摘要分组期望缺 SPU，与在途提交演进相关待对齐）；迁移推进到 0052；PLM 网关侧授权仍未兑现、快照三表 0 行未变。</li><li>09-29 新增 9 笔（ahead 30 未推）：后端聚合三笔——<code>d199e64</code> 待办联接分页拉平修复 100 条截断、首页共享读取层消除同请求链重复全量扫描；<code>a3ac90a</code> 记录/待办现读、桥分页拉平、超预算拒绝伪完整、有界缓存与真实新鲜度；<code>1ab67c1</code> 超预算与目录分页错误统一映射 dependency_unavailable+subcode，不再泄漏 500；测试体系两笔——<code>8405cee</code> 组件 setup 统一清存储修顺序耦合、<code>3feb9a5</code> fast 层挂统一 setup 废除 21 个手工组件清单且 component 并发 2→4 实测 69s→46s；<code>0ea9f0a</code> 角色空闲预取（11 角色映射，未登录零工作台下载）、<code>080e7e1</code> 缓存六元组作用域、<code>c2e775c</code> 预取排队/丢弃语义与路由形状归一、<code>3e547ae</code> 基础数据 mega 弹层等宽。</li><li>09-30 白天至晚间新增 56 笔，其中 52 笔已推送 aliyun/dev 至 <code>0b81dd4</code>（fast-forward 零冲突），ahead 4 为工作台启动降级四笔。六工作流五笔分批提交（<code>650b17e</code> 迁移前置到服务装配前并 failFast、<code>c6affcc</code> 工厂客户端保留上游业务码、<code>76abfee</code> 503 细分码前端贯通带行动指引、<code>b2d280e</code> 执行标准名称/工厂归属体系与矩阵视图重构、<code>7ecb7ba</code> BatchTag CEP 链路启用与 multipart 分片直传上限 1 GiB）；启动链路再修（<code>8573ba3</code> 本地栈失败回收整栈、守卫信号兜底防孤儿）；任务工作台状态矩阵九笔（<code>8927f42</code> 状态矩阵文档钉五态投影、审批中可暂存/重新提交内审撤回上一轮 <code>a78b24c</code>/<code>7ad5978</code>、date_hint 按图稿类型投影 <code>b526105</code>、阶段轨道与评论栏宽屏展开）；审计与韧性批次（授权 N+1 短 TTL 缓存 <code>8eb934d</code>、语句级超时 <code>962f4f0</code>、记录审计批量化 <code>827794e</code>、外部客户端韧性四件套 <code>1329e3e</code>、门户故障与无权限解耦 <code>74242d7</code>、门户快照授权落地 <code>8701dac</code>、undici/tiptap 高危清零 <code>1a7f4b7</code>）；评论两修（<code>7dc64bd</code> 会话引导契约端点补齐修编辑器不可用、<code>dfd9642</code> 删除讨论下线线程与显示名真实姓名）；平台实时通道一二期七笔+探针五笔（<code>1311c01</code>..<code>29f83fc</code> realtime-contracts 契约包、RealtimeHub 泛化迁 realtime 模块、nginx/vite /api/realtime 通道、平台 v1 会话状态机与探针运维清单；<code>cdb6c1e</code>/<code>6ce28c2</code>..<code>0b81dd4</code> 探针修复与 lint 对齐；本地全链路实测 presence 回声、87s 保活、75s 空闲回收 4009、连接上限契约拒绝，阶段三未开工）；拼接专注态评论栏常驻 <code>d622d0c</code>；BatchTag 配置契约环境矩阵 22 用例 <code>d278312</code>；原料标准资料 <code>691cbf5</code> 入库后经裁定属 QMS 项目、<code>3c7a345</code> 迁出。10-01 实测 fast 层 291 文件 / 2,159 项：2,158 项通过、1 项跳过、0 失败。</li></ul></div>
+            
             <div class="delivery-lane"><strong>交付缺口</strong><ul><li>阶段 7 清单（09-18 更新）缺口现状：#2 records/render3d PG 仓储已落地、#5 field-schema 已随 C1 批次关闭（迁移 0008）、#7 Redis 订阅管理器已接入（RealtimeHub + psubscribe，端到端推送需 UAT 回读）；仍开放：0001-0056 迁移（0030 空缺）未对 UAT/生产库执行、SVG v9 契约校验器装配、真实 Gateway 身份（<code>/token/validate/v2</code>）、评论附件 OSS、主数据/审核轮询处理器、E2E 与压测、外部系统可观测埋点。</li><li>审计矩阵遗留收敛进展：审计 v2 单一写入器与错误码目录 v2 已落地（<code>be1a153</code>）、记录域端点已按 TS 新合同对齐（<code>432f1d3</code>）、任务号熵与飞书回调绑回已修（<code>c407475</code>）、评论附件租约围栏与前滚迁移完善（<code>efa8ca0</code>，迁移 0029）。v9 浏览器行为报告、真实 Illustrator 宿主报告和逐槽位人工 A/B 签核仍为 pending；业务 UAT、生产部署与结果回读未执行（后端从未部署）。</li></ul></div>
           </div>
         </article>
@@ -2270,10 +2446,20 @@
             <div class="delivery-lane"><strong>本地受控准入</strong><ul><li>JJF 1070-2023（含 2024 修改单）完成 73 页直接视觉核对，681 sections / embeddings、APPROVED / READY 和 1 个净含量 RuleBinding 已回读。</li><li>配套解读本地主库现有 14 份文档、166 sections / embeddings；13 份 guidance 仅作上下文，不生成独立 RuleBinding。</li><li>历史 proof 引用迁移覆盖 7 个 APPROVED / READY 版本、11,089 sections / embeddings，投影计数保持不变。</li></ul></div>
             <div class="delivery-lane"><strong>GB 24154 最新处理</strong><ul><li>提交 <code>b8dfd01</code> 使用用户 PDF 恢复 124 页实施指南中的 28 个图像区域；21 个涉及页面完成本轮复核，缺失图像和未决图像均为 0。</li><li>该资料仍是 GUIDANCE / INTERPRETS 关系，228 sections 全部作为 supporting context；状态仍为 PARTIAL / PENDING_REVIEW。</li></ul></div>
             <div class="delivery-lane"><strong>标准进度治理</strong><ul><li>新增只读进度登记、JSON Schema、汇总生成器和 commit / push 门禁；当前盘点 34 个业务清单标准及 34 个证据旁路标准。</li><li>09-30 汇总刷新（standard-progress-summary 生成器输出为据）：已验证来源 34、canonical 34、视觉签核 2、批准登记 33、数据库回读 8、RuleBinding 回读 8，生产可用为 0；状态冲突 33 项、旧状态待撤销 33 项，须按 sourceId、版本和摘要裁决后方可收敛。</li></ul></div>
-            <div class="delivery-lane"><strong>当前验证与待完成边界</strong><ul><li>最新提交 <code>afc1cf63</code>（09-30）：a842bb47 后新增 5 笔——<code>55412dc6</code> 加固同 Pod UAT 配置契约（在途 deploy 清单微调随之提交）；<code>270ebbb9</code> 补齐 held-out 跨法规准入证据；<code>6138f880</code> 2026 业务审核指引批准准入（ZIP 来源冻结、canonical 46 条、approval_registry v5 85→86 源、6 项确定性门禁测试）；<code>7b8e261a</code>/<code>afc1cf63</code> 评测库回放工具化——批准注册表→PG 投影，86 版本 APPROVED+READY、15,580 条款与向量、63 检索绑定逐行回读 PASS，回执机器化与预检/容错/幂等强化（提交说明为据）。工作树已清零。</li><li>ingestion 制品合同、Legacy Excel 迁移、Docker 合同和运行边界检查已进入治理链路。法规汇总当前保留 33 项状态冲突和 33 项旧状态待撤销（GB 24154 等须按精确版本坐标先完成撤销/重建），artifact/eval、生产部署、统一库切换与业务 UAT 尚未执行。</li></ul></div>
+            <div class="delivery-lane"><strong>待完成边界</strong><ul><li>ingestion 制品合同、Legacy Excel 迁移、Docker 合同和运行边界检查已进入治理链路。法规汇总当前保留 33 项状态冲突和 33 项旧状态待撤销（GB 24154 等须按精确版本坐标先完成撤销/重建），artifact/eval、生产部署、统一库切换与业务 UAT 尚未执行。</li></ul></div>
           </div>
         </article>
       </div>
+    <div class="week-progress-stack" aria-label="TDS Studio 与 TDS Review 周进度周历">
+      <section class="week-progress">
+        <div class="week-progress-head"><small>TDS Studio · Weekly Calendar</small><h3>业务平台周进度</h3></div>
+        <div class="week-cal"><div class="week-cal-head"><span>周一</span><span>周二</span><span>周三</span><span>周四</span><span>周五</span><span>周六</span><span>周日</span></div><div class="week-cal-cap current"><span class="week-range">W40 · 09-28 ~ 10-04</span><span class="week-now">本周</span><span class="week-badge ok">已推送 0b81dd4 · ahead 4 · fast 全绿</span></div><div class="week-cal-row"><div class="week-day"><span class="d">09-28</span><ul><li>任务创建向导深水区 7 笔（60ddde7..f35e3b6）</li><li>fast 实测 241 文件 / 1,726 项中 1 失败（create-task-state 期望待对齐）</li><li>迁移推进到 0052</li></ul></div><div class="week-day"><span class="d">09-29</span><ul><li>后端聚合与测试体系 9 笔：分页拉平（d199e64）、现读+有界缓存（a3ac90a）、错误映射 dependency_unavailable（1ab67c1）、测试统一 setup（8405cee/3feb9a5）、角色空闲预取（0ea9f0a）等</li></ul></div><div class="week-day"><span class="d">09-30</span><ul><li>56 笔：实时通道一二期+探针、审计韧性（8eb934d/962f4f0/642ea91/8701dac）、状态矩阵九笔、评论两修（7dc64bd/dfd9642）、执行标准、CEP multipart 1 GiB、迁移 failFast、依赖安全（1a7f4b7）</li><li>52 笔已推送 aliyun/dev 至 0b81dd4；迁移提交至 0056，工作树转净</li></ul></div><div class="week-day today"><span class="d">10-01<em class="today-tag">今</em></span><ul><li>实测 fast 层 291 文件 / 2,159 项全绿（2,158 过、1 跳过，12.0s）</li><li>ahead 4：工作台启动降级四笔（2b8bf3b..1bfc557）</li></ul></div><div class="week-day empty"><span class="d">10-02</span></div><div class="week-day empty"><span class="d">10-03</span></div><div class="week-day empty"><span class="d">10-04</span></div></div><div class="week-cal-cap"><span class="week-range">W39 · 09-21 ~ 09-27</span><span class="week-badge">推送落地 f12468f → d4d29b5</span></div><div class="week-cal-row"><div class="week-day"><span class="d">09-21</span><ul><li>UX 契约第二轮七笔、推送通知协作链六笔（已推送至 deb785d）</li><li>拼接规则引擎 V2 五笔、0031 死表清理、web pod 拓扑收敛</li><li>实测 fast 418 文件 / 3,353 项通过</li></ul></div><div class="week-day empty"><span class="d">09-22</span></div><div class="week-day empty"><span class="d">09-23</span></div><div class="week-day empty"><span class="d">09-24</span></div><div class="week-day"><span class="d">09-25</span><ul><li>62 提交合并远端 4 提交后全量推送（f12468f 合并点，HEAD 0ec4ba6）：Go 物料同步 TS 恢复七笔、搜索修复十笔、页头统一三笔、配方 PLM 树表四笔、角色切换器、推送通知轮询校验 d71b351、UAT 镜像分层</li></ul></div><div class="week-day empty"><span class="d">09-26</span></div><div class="week-day"><span class="d">09-27</span><ul><li>再推 d4d29b5（约 46 提交）：PMO 创建 v3 十笔、项目工作台重构十三笔、首页三改造九笔、营养模板库四笔（0049）、PLM 回读 e2eacc9、单例守卫 cbe2295、创建弹窗化 f3e4f97</li></ul></div></div><div class="week-cal-cap"><span class="week-range">W38 · 09-14 ~ 09-20</span><span class="week-badge">Go 移除 · TS 主线收尾</span></div><div class="week-cal-row"><div class="week-day empty"><span class="d">09-14</span></div><div class="week-day empty"><span class="d">09-15</span></div><div class="week-day empty"><span class="d">09-16</span></div><div class="week-day empty"><span class="d">09-17</span></div><div class="week-day"><span class="d">09-18</span><ul><li>Go 实现整体移除，加 check:no-go 门禁防回潮</li><li>阶段 7 验收清单更新，形成交付缺口对照基线</li></ul></div><div class="week-day empty"><span class="d">09-19</span></div><div class="week-day empty"><span class="d">09-20</span></div></div></div>
+      </section>
+      <section class="week-progress">
+        <div class="week-progress-head"><small>TDS Review · Weekly Calendar</small><h3>审核与法规准入周进度</h3></div>
+        <div class="week-cal"><div class="week-cal-head"><span>周一</span><span>周二</span><span>周三</span><span>周四</span><span>周五</span><span>周六</span><span>周日</span></div><div class="week-cal-cap current"><span class="week-range">W40 · 09-28 ~ 10-04</span><span class="week-now">本周</span><span class="week-badge ok">最新 afc1cf63 · 工作树净</span></div><div class="week-cal-row"><div class="week-day"><span class="d">09-28</span><ul><li>评测子集运行契约与跨轮验收门（b7d7eed3）</li><li>case-20 三轮回归、case-06 A/B、case-05 canary 证据入库（8e220266）</li></ul></div><div class="week-day"><span class="d">09-29</span><ul><li>baseline-20260928 五批证据入库 run-62~66（15171522）</li><li>智审背标同 Pod 交付清单：nginx 8080 分流、双迁移 Job、键名契约（d072963f）</li><li>部署防漂移门禁 12 项测试+ADR-0010（a842bb47）</li></ul></div><div class="week-day"><span class="d">09-30</span><ul><li>2026 业务审核指引批准准入：canonical 46 条单绑定、registry 85→86 源、6 项门禁测试（6138f880）</li><li>评测库回放工具化：86 版本 / 15,580 条款与向量 / 63 绑定回读 PASS（7b8e261a/afc1cf63）</li><li>同 Pod UAT 配置契约加固（55412dc6）、held-out 跨法规证据（270ebbb9）</li><li>汇总刷新：批准登记 33、回读 8、RuleBinding 8、冲突 33、生产可用 0</li></ul></div><div class="week-day empty today"><span class="d">10-01<em class="today-tag">今</em></span></div><div class="week-day empty"><span class="d">10-02</span></div><div class="week-day empty"><span class="d">10-03</span></div><div class="week-day empty"><span class="d">10-04</span></div></div><div class="week-cal-cap"><span class="week-range">W39 · 09-21 ~ 09-27</span><span class="week-badge">20 案评测基线工具链就绪</span></div><div class="week-cal-row"><div class="week-day empty"><span class="d">09-21</span></div><div class="week-day empty"><span class="d">09-22</span></div><div class="week-day empty"><span class="d">09-23</span></div><div class="week-day"><span class="d">09-24</span><ul><li>held-out 封存前确定性校验（a9988462）</li><li>Pi 嵌套错误码透传与批次熔断（98a8456e）</li><li>标准角色路由层投影（b7d363b4）</li></ul></div><div class="week-day"><span class="d">09-25</span><ul><li>模型输出合同 v6（20f6dfda）</li><li>20 案 GOLD 一键运行（f82e2d92）、跨案并发派案（0cf9013f）</li><li>JEV v2 归档、批次 C 准入冻结对齐（e7a144d0）、台账准入契约测试（c5ce3452）</li></ul></div><div class="week-day"><span class="d">09-26</span><ul><li>agent-runtime 文本截断修复（77806e7e），进度汇总与门禁收尾</li></ul></div><div class="week-day empty"><span class="d">09-27</span></div></div><div class="week-cal-cap"><span class="week-range">W38 · 09-14 ~ 09-20</span><span class="week-badge">准入治理链成型</span></div><div class="week-cal-row"><div class="week-day"><span class="d">09-14</span><ul><li>GB28050 辐照字段重塑与评测资产再生（01bd1952）</li><li>DeepSeek web search 批次 0 启动（c6f4cc2c）</li></ul></div><div class="week-day empty"><span class="d">09-15</span></div><div class="week-day empty"><span class="d">09-16</span></div><div class="week-day empty"><span class="d">09-17</span></div><div class="week-day empty"><span class="d">09-18</span></div><div class="week-day"><span class="d">09-19</span><ul><li>批准注册表 v5（7b1540a7）、B/C1 批次 41 来源登记（38b25fc2）、审计对账双真（4bfa294b）</li><li>GAP 批次 HTML 渠道 7 源全链（213eeff5）、统一准入编排+ADR-0007（2bcc7713）</li><li>检索 locator 与引用闭包（f564d77a）、pdf_verification 读侧拆分（a9aaade9）</li></ul></div><div class="week-day"><span class="d">09-20</span><ul><li>ADR-0008 任务级结构块检索分层迁移落地（bede7d8b）</li></ul></div></div></div>
+      </section>
+    </div>
     </section>
 
     <section id="modules" class="section" aria-labelledby="modules-title">
